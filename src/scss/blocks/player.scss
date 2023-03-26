@@ -1,0 +1,147 @@
+.player {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    &.hidden {
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+}
+
+.player__title {
+    margin-bottom: rem(30px);
+
+    @include tablets {
+        margin-bottom: rem(40px);
+    }
+
+    @include phones {
+        font-size: rem(40px);
+        line-height: rem(36px);
+    }
+}
+
+.player__wrapper {
+    height: 100%;
+    
+    &.active .player__splash {
+      display: none;
+    }
+}
+  
+.player__splash {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+}
+
+.player__btn-wrapper {
+    position: absolute;
+    width: rem(75px);
+    height: rem(110px);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: 0 0;
+    border: none;
+}
+
+.player__btn-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+  
+.player__controls {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: rem(35px);
+    background: #404040;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3%;
+}
+  
+.player__start {
+    outline: 0;
+    cursor: pointer;
+    transition: all .1s ease-out;
+    background: url(../../img/player-small.svg) center center/cover no-repeat;
+    width: rem(11px);
+    height: rem(16px);
+    border: 0;
+}
+  
+.player__playback {
+    height: rem(16px);
+    position: relative;
+    flex: 1;
+    margin: 0 rem(15px);
+  
+    &:before {
+      content: "";
+      height: rem(4px);
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      background: #626262;
+      display: block;
+      transform: translateY(-50%);
+    }
+}
+  
+.player__playback-button {
+    background: #626262;
+    border-radius: rem(50px);
+    border: none;
+    width: rem(12px);
+    height: rem(12px);
+    padding: 0;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left: 0;
+}
+  
+.player-sound__button {
+    outline: 0;
+    cursor: pointer;
+    transition: all .1s ease-out;
+    background: url(../../img/sound-button.svg) center center/cover no-repeat;
+    width: rem(11px);
+    height: rem(16px);
+    border: 0;
+}
+
+.player-sound__volume {
+    height: rem(16px);
+    position: relative;
+    flex: 1;
+    margin: 0 rem(15px);
+  
+    &:before {
+      content: "";
+      height: rem(4px);
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      background: #626262;
+      display: block;
+      transform: translateY(-50%);
+    }
+}
+  
+.player__elem {
+    width: 100%;
+    height: 100%;
+}

@@ -1,0 +1,20 @@
+.feature {
+    display: flex;
+    align-items: center;
+    max-width: rem(159px);
+}
+
+.feature__icon {
+    margin-right: rem(14px);
+}
+
+.feature__icon-img {
+    width: rem(35px);
+    height: rem(32px);
+}
+
+.feature__text {
+    font-size: rem(16px);
+    line-height: rem(18px);
+    font-weight: $fontWeightBold;
+}

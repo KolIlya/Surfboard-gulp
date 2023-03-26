@@ -1,0 +1,43 @@
+.social__list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transform: translateX(12px);
+    padding-top: rem(12px);
+
+    @include tablets {
+        transform: translateX(-8px);
+        padding-top: rem(5px);
+    }
+
+    @include phones {
+        transform: translateX(9px);
+        padding-top: rem(8px);
+    }
+}
+
+.social__item {
+    margin-right: rem(14px);
+
+    @include phones {
+        margin-right: rem(18px);
+    }
+}
+
+.social_item:last-child {
+    margin-right: 0;
+}
+
+.social__svg {
+    display: block;
+    width: rem(20px);
+    height: rem(20px);
+    position: relative;
+    color: #b3b3b3;
+    transition: 0.3s color;
+
+    &:hover {
+        color: #292929;
+    }
+}
+

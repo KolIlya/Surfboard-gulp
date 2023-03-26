@@ -1,0 +1,20 @@
+.products-menu-section {
+    position: relative;
+    background: url(../../img/products-menu-bg.png) center center/cover no-repeat;
+    color: #fff;
+}
+
+.products-menu-section__title {
+    position: absolute;
+    top: rem(109px);
+    left: rem(84px);
+    color: #fff;
+    font-size: rem(48px);
+    font-weight: $fontWeightBold;
+    line-height: rem(58px);
+
+    @include phones {
+    font-size: rem(40px);
+    line-height: rem(36px);
+    }
+}

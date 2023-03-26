@@ -1,0 +1,58 @@
+// size
+$containerWidth: 940px;
+$baseFontSize: 18px;
+$fontWeightBold: 700;
+
+//breakpoints
+$tablets: 768px;
+$phones: 480px;
+
+// z-index
+$z-fixed-menu: 100;
+
+// normalize
+@import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css");
+
+// setups 
+@import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,300;0,400;0,700;0,800;1,400&display=swap");
+
+@import "media";
+@import "layout";
+
+// components
+@import "blocks/hero";
+@import "blocks/header";
+@import "blocks/features";
+@import "blocks/feature";
+@import "blocks/button";
+@import "blocks/section";
+@import "blocks/headline";
+@import "blocks/benefits";
+@import "blocks/benefit";
+@import "blocks/reviews";
+@import "blocks/interactive-avatar";
+@import "blocks/order-section";
+@import "blocks/form";
+@import "blocks/radio";
+@import "blocks/fixed-menu";
+@import "blocks/map";
+@import "blocks/social";
+@import "blocks/footer";
+@import "blocks/contacts";
+@import "blocks/menu";
+@import "blocks/hamburger";
+@import "blocks/phone-number";
+@import "blocks/logo";
+@import "blocks/hamburger-menu";
+@import "blocks/products";
+@import "blocks/product";
+@import "blocks/parameters";
+@import "blocks/parameter";
+@import "blocks/team";
+@import "blocks/modal";
+@import "blocks/input";
+@import "blocks/products-menu-section";
+@import "blocks/products-menu";
+@import "blocks/player-section";
+@import "blocks/player";
+

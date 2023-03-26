@@ -1,0 +1,16 @@
+.header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    z-index: 10;
+
+    @include tablets {
+        align-items: center;
+        padding: rem(1px) rem(13px);
+    }
+
+    @include phones {
+        padding: 0;
+    }
+}
+

@@ -1,0 +1,152 @@
+.team-title {
+    margin-bottom: rem(53px);
+
+    @include tablets {
+        margin-bottom: rem(33px);
+    }
+
+    @include phones {
+        font-size: rem(40px);
+        line-height: rem(36px);
+        margin-bottom: rem(36px);
+    }
+}
+
+.team__list {
+    display: flex;
+    justify-content: space-between;
+
+    &--desktop {
+        @include tablets {
+            display: none;
+        }
+    }
+
+    &--mobile {
+        display: none;
+        justify-content: center;
+
+        @include tablets {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+    }
+}
+
+.team__item {
+    text-align: center;
+    margin-right: rem(20px);
+    color: #292929;
+    flex: 1;
+    position: relative;
+    max-width: rem(220px);
+
+    &:last-child {
+        margin-right: 0;
+    }
+
+    &--active {
+        .team__icon-elem {
+            rotate: 180deg;
+        }
+
+        @include tablets {
+            flex: initial;
+        }
+
+        .team__button {
+        @include tablets {
+            margin-bottom: rem(15px);
+        }
+        }
+    }
+
+    @include tablets {
+        margin-bottom: rem(16px);
+        margin-right: 0;
+    }
+
+    @include phones {
+        margin-bottom: rem(6px);
+    }
+}
+
+.team__item-wrapper {
+    width: rem(220px);
+    height: rem(290px);
+    margin-bottom: rem(21px);
+
+    @include tablets {
+        margin-bottom: rem(20px);
+    }
+
+    @include phones {
+        margin-bottom: rem(17px);
+    }
+}
+
+.team__item-img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.team__button {
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+}
+
+.team__name {
+    cursor: pointer;
+    font-size: rem(21px);
+    font-weight: $fontWeightBold;
+    line-height: rem(25px);
+    margin-bottom: rem(8px);
+    background: 0 0;
+    border: none;
+    margin-right: rem(4px);
+    padding: 0;
+}
+
+.team__icon {
+    width: rem(9px);
+    height: rem(9px);
+}
+
+.team__icon-elem {
+    width: 100%;
+    height: 100%;
+    transition: rotate 0.3s;
+}
+
+.team__content {
+    height: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 100%;
+    transition: height 0.3s;
+
+    @include tablets {
+        position: static;
+    }
+}
+
+
+.team__content-title {
+    font-size: rem(18px);
+    line-height: rem(22px);
+    margin-bottom: rem(4px);
+
+    @include tablets {
+        margin-bottom: 0;
+    }
+}
+
+.team__content-text {
+    font-size: rem(18px);
+    line-height: rem(22px);
+    color: #666666;
+}
+

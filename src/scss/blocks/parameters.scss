@@ -1,0 +1,80 @@
+.parameters {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+
+    &:hover {
+        .parameters__button {
+          background: #60aacc;
+        }
+        .parameters__dropdown {
+          left: 100%;
+          opacity: 1;
+        }
+    }
+}
+  
+.parameters__button {
+    width: rem(91px);
+    height: rem(91px);
+    background: #3A587E;
+    border-radius: rem(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #fff;
+}
+  
+.parameters__button-icon {
+    margin-bottom: rem(7px);
+}
+  
+.parameters__button-icon-elem {
+    fill: currentColor;
+    width: rem(38px);
+    height: rem(38px);
+    display: block;
+}
+  
+.parameters__button-text {
+    font-size: rem(14px);
+    font-weight: $fontWeightBold;
+    line-height: rem(17px);
+    text-align: center;
+    text-transform: uppercase;
+}
+  
+.parameters__dropdown {
+    width: rem(273px);
+    overflow: hidden;
+    position: absolute;
+    background: #d5d5d5;
+    border-radius: rem(5px);
+    top: 0;
+    padding: rem(18px) rem(14px) rem(21px);
+    left: -9999px;
+    opacity: 0;
+    transition: opacity .3s;
+  
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      height: 50%;
+    }
+}
+  
+.parameters__item {
+    padding: rem(6px) rem(12px);
+    align-items: center;
+    display: flex;
+    margin-bottom: rem(8px);
+    color: #000;
+    font-size: rem(16px);
+    line-height: rem(24px);
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}

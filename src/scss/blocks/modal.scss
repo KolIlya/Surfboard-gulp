@@ -1,0 +1,33 @@
+.modal {
+    display: none;
+
+    &.error-modal {
+        .modal__content {
+            color: #ff0000;
+        }
+    }
+
+    &.fancybox-content {
+        padding: 0;
+    }
+
+    .fancybox-button {
+        display: none;
+    }
+}
+
+.modal__container {
+    background: #fff;
+    color: #000;
+    padding: rem(37px) rem(67px);
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+}
+
+.modal__content {
+    font-size: rem(18px);
+    font-weight: 500;
+    line-height: rem(24px);
+    margin-bottom: rem(18px);
+}

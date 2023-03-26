@@ -1,0 +1,22 @@
+.parameter__icon {
+    width: rem(32px);
+    height: rem(32px);
+    margin-right: rem(12px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.parameter__icon-elem {
+    color: #010002;
+    width: 100%;
+    height: 100%;
+}
+
+.parameter__text {
+    font-weight: 500;
+}
+
+.parameter__param {
+    margin-left: auto;
+}

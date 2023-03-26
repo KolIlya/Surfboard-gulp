@@ -1,0 +1,17 @@
+.order-section {
+    background: url("../img/foarm-bg.png") center top/cover no-repeat;
+    color: #fff;
+}
+
+.order-section__title {
+    margin-bottom: rem(59px);
+
+    @include tablets {
+        margin-bottom: rem(30px);  
+        width: 95%;
+    }
+
+    @include phones {
+        margin-bottom: rem(39px);
+    }
+}
