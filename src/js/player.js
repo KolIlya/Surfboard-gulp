@@ -1,19 +1,19 @@
 let player;
 const playerContainer = $(".player");
+const playBigButton = $(".player__btn-wrapper");
 
 let eventsInit = () => {
   $(".player__start").click(e => {
     e.preventDefault();
-
 
     if (playerContainer.hasClass("paused")) {
       player.pauseVideo();
     } else {
       player.playVideo();
     }
-  });
+});
 
-  $(".player__playback").click(e => {
+$(".player__playback").click(e => {
     const bar = $(e.currentTarget);
     const clickedPosition = e.originalEvent.layerX;
     
@@ -29,7 +29,11 @@ let eventsInit = () => {
    });
 
    $(".player__splash").click(e => {
-    player.playVideo();
+    if (playerContainer.hasClass("paused")) {
+      player.pauseVideo();
+    } else {
+      player.playVideo();
+    }
   })
 };
 
@@ -65,7 +69,7 @@ const formatTime = timeSec => {
   }, 1000);
  };
 
- const onPlayerStateChange = event => {
+const onPlayerStateChange = event => {
   /*
     -1 (воспроизведение видео не начато)
     0 (воспроизведение видео завершено)
@@ -85,8 +89,7 @@ const formatTime = timeSec => {
       playerContainer.removeClass("paused");
       break;
   }
- };
-
+};
 
 function onYouTubeIframeAPIReady() {
   player = new YT.Player('yt-player', {

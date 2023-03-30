@@ -8,7 +8,8 @@
     <title>Surfboard</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/main.min.css">
+    <link rel="fonts" href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,300;0,400;0,700;0,800;1,400&display=swap"/>
 </head>
 
 <body>
@@ -34,7 +35,7 @@
                                     <a href="#" class="menu__link" data-scroll-to="team">Команда</a>
                                 </li>
                                 <li class="menu__item">
-                                    <a href="#" class="menu__link" data-scroll-to="products-menu>Меню</a>
+                                    <a href="#" class="menu__link" data-scroll-to="products-menu">Меню</a>
                                 </li>
                                 <li class="menu__item">
                                     <a href="#" class="menu__link" data-scroll-to="reviews">Отзывы</a>
@@ -679,19 +680,19 @@
                             <div class="player__wrapper">
                                 <div id="yt-player" class="player__elem"></div>
                                 <div class="player__splash">
-                                    <div class="player__btn-wrapper">
+                                    <div class="player__btn-wrapper player__start">
                                         <img src="img/player.png" alt="" class="player__btn-img">
                                     </div>
                                 </div>
                             </div>
                             <div class="player__controls">
-                                <button class="player__start"></button>
+                                <button class="player__start-btn player__start"></button>
                                 <div class="player__playback">
                                     <button class="player__playback-button"></button>
                                 </div>
-                                    <button class="player-sound__button"></button>
+                                    <button class="player-sound-btn"></button>
                                     <div class="player-sound__volume">
-                                        <button class="player__playback-button"></button>
+                                        <button class="player__sound-button"></button>
                                     </div>
                             </div>
                         </div>
@@ -863,25 +864,25 @@
         <nav class="hamburger-menu__nav">
             <ul class="hamburger-menu__list">
                 <li class="hamburger-menu__item">
-                    <a href="" class="hamburger-menu__link" id="hamMenuLink">О нас</a>
+                    <a href="" class="hamburger-menu__link" data-scroll-to="benefits">О нас</a>
                 </li>
                 <li class="hamburger-menu__item">
-                    <a href="" class="hamburger-menu__link" id="hamMenuLink">Серфборды</a>
+                    <a href="" class="hamburger-menu__link" data-scroll-to="products">Серфборды</a>
                 </li>
                 <li class="hamburger-menu__item">
-                    <a href="" class="hamburger-menu__link" id="hamMenuLink">Команда</a>
+                    <a href="" class="hamburger-menu__link" data-scroll-to="team">Команда</a>
                 </li>
                 <li class="hamburger-menu__item">
-                    <a href="" class="hamburger-menu__link" id="hamMenuLink">Меню</a>
+                    <a href="" class="hamburger-menu__link" data-scroll-to="products-menu">Меню</a>
                 </li>
                 <li class="hamburger-menu__item">
-                    <a href="" class="hamburger-menu__link" id="hamMenuLink">Отзывы</a>
+                    <a href="" class="hamburger-menu__link" data-scroll-to="reviews">Отзывы</a>
                 </li>
                 <li class="hamburger-menu__item">
-                    <a href="" class="hamburger-menu__link" id="hamMenuLink">Как мы работаем</a>
+                    <a href="" class="hamburger-menu__link" data-scroll-to="player">Как мы работаем</a>
                 </li>
                 <li class="hamburger-menu__item">
-                    <a href="" class="hamburger-menu__link" id="hamMenuLink">Контакты</a>
+                    <a href="" class="hamburger-menu__link" data-scroll-to="contacts">Контакты</a>
                 </li>
             </ul>
         </nav>
@@ -903,7 +904,8 @@
     </script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.19/jquery.touchSwipe.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.4.5/mobile-detect.min.js"></script>
-    <script src="js/slider.js"></script>
+    <script src="js/main.min.js"></script>
+    <!-- <script src="js/slider.js"></script>
     <script src="js/hamburger-menu.js"></script>
     <script src="js/reviews.js"></script>
     <script src="js/team.js"></script>
@@ -911,7 +913,7 @@
     <script src="js/player.js"></script>
     <script src="js/map.js"></script>
     <script src="js/products-menu.js"></script>
-    <script src="js/ops.js"></script>
+    <script src="js/ops.js"></script> -->
 </body>
 
 </html>

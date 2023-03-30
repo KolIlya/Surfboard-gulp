@@ -2,6 +2,7 @@ const sections = $("section");
 const display = $(".main-content");
 const sideMenu = $(".fixed-menu");
 const menuItems = sideMenu.find(".fixed-menu__item");
+const opsBody = document.body;
 
 const mobileDetect = new MobileDetect(window.navigator.userAgent);
 const isMobile = mobileDetect.mobile();
@@ -38,7 +39,7 @@ const resetActiveClassForItem = (items, itemEq, activeClass) => {
 }
 
 const performTransition = sectionEq => {
-    if (inScroll) return;
+    if (inScroll || opsBody.classList.contains("fancybox-active")) return;
 
     const transitionOver = 1000;
     const mouseInertiaOver = 300;
@@ -120,6 +121,7 @@ $("[data-scroll-to]").click (e => {
     const $this = $(e.currentTarget);
     const target = $this.attr("data-scroll-to");
     const reqSection = $(`[data-section-id=${target}]`);
+    opsBody.classList.remove("fancybox-active");
 
     performTransition(reqSection.index());
 });
@@ -134,6 +136,8 @@ $("body").swipe( {
 
         if (direction === "up") scrollDirection = "next";
         if (direction === "down") scrollDirection = "prev";
+
+        if (!scrollDirection) return;
 
         scroller[scrollDirection]();
     }

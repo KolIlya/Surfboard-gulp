@@ -7,7 +7,9 @@ const init = () => {
         controls: []
     });
 
-    let coords = [55.75027, 37.603737];
+    let coords = [
+        [55.75027, 37.603737]
+    ];
 
     const myCollection = new ymaps.GeoObjectCollection({}, {
         draggable: false,
