@@ -1,6 +1,6 @@
 const { src, dest, task, series, watch, parallel } = require("gulp");
 const rm = require('gulp-rm');
-const sass = require('gulp-sass')(require('sass'));
+const sass = require('gulp-sass')(require('dart-sass'));
 const concat = require('gulp-concat');
 const browserSync = require('browser-sync').create();
 const reload = browserSync.reload;
@@ -43,7 +43,7 @@ task('styles', () => {
     .pipe(concat('main.min.scss'))
     .pipe(sassGlob())
     .pipe(sass().on('error', sass.logError))
-    .pipe(px2rem())
+    // .pipe(px2rem())
     .pipe(gulpif(env === 'prod', autoprefixer({
         browsers: ['last 2 versions'],
         cascade: false
@@ -57,7 +57,7 @@ task('styles', () => {
 
 
 task('scripts', () => {
-  return src([...JS_LIBS, 'src/js/*.js'])
+  return src([/*...JS_LIBS,*/ 'src/js/*.js'])
     .pipe(gulpif(env === 'dev', sourcemaps.init()))
     .pipe(concat('main.min.js', {newLine: ';'}))
     .pipe(gulpif(env === 'prod', babel({
@@ -69,26 +69,26 @@ task('scripts', () => {
     .pipe(reload({ stream: true }));
 });
 
-task('icons', () => {
-  return src('src/img/*.svg')
-    .pipe(svgo({
-      plugins: [
-        {
-          removeAttrs: {
-            attrs: '(fill|stroke|style|width|height|data.*)'
-          }
-        }
-      ]
-    }))
-    .pipe(svgSprite({
-      mode: {
-        symbol: {
-          sprite: '../sprite.svg'
-        }
-      }
-    }))
-    .pipe(dest(`${DIST_PATH}/img`));
-});
+// task('icons', () => {
+//   return src('src/img/*.svg')
+//     .pipe(svgo({
+//       plugins: [
+//         {
+//           removeAttrs: {
+//             attrs: '(fill|stroke|style|width|height|data.*)'
+//           }
+//         }
+//       ]
+//     }))
+//     .pipe(svgSprite({
+//       mode: {
+//         symbol: {
+//           sprite: '../sprite.svg'
+//         }
+//       }
+//     }))
+//     .pipe(dest(`${DIST_PATH}/img`));
+// });
 
 task('server', () => {
   browserSync.init({
@@ -103,13 +103,13 @@ task('watch', () => {
   watch('./src/scss/**/*.scss', series('styles'));
   watch('./src/*.html', series('copy:html'));
   watch('./src/jf/*.js', series('scripts'));
-  watch('./src/img/*.svg', series('icons'));
+  // watch('./src/img/*.svg', series('icons'));
  });
 
 task('default',
  series(
    'clean',
-   parallel('copy:html', 'copy:img', 'styles', 'scripts', 'icons'),
+   parallel('copy:html', 'copy:img', 'styles', 'scripts',),
    parallel('watch', 'server')
  )
 );
@@ -117,5 +117,5 @@ task('default',
 task('build',
  series(
    'clean',
-   parallel('copy:html', 'copy:img', 'styles', 'scripts', 'icons'))
+   parallel('copy:html', 'copy:img', 'styles', 'scripts',))
 );
