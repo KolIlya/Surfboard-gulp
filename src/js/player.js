@@ -1,114 +1,87 @@
-let player;
-const playerContainer = $(".player");
-const playBigButton = $(".player__btn-wrapper");
+let video;
+let durationControl;
+let soundControl;
+let intervalId;
+let playImg = document.querySelector('.player__button-img');
 
-let eventsInit = () => {
-  $(".player__start").click(e => {
-    e.preventDefault();
+document.addEventListener('DOMContentLoaded', e => {
+  video = document.getElementById('video');
 
-    if (playerContainer.hasClass("paused")) {
-      player.pauseVideo();
-    } else {
-      player.playVideo();
-    }
-});
+  video.addEventListener('click', playStop);
 
-$(".player__playback").click(e => {
-    const bar = $(e.currentTarget);
-    const clickedPosition = e.originalEvent.layerX;
-    
-    const newButtonPositionPercent = (clickedPosition / bar.width()) * 100;
-    const newPlaybackPositionSec =
-      (player.getDuration() / 100) * newButtonPositionPercent;
-    
-    $(".player__playback-button").css({
-      left: `${newButtonPositionPercent}%`
-    });
-    
-    player.seekTo(newPlaybackPositionSec);
-   });
-
-   $(".player__splash").click(e => {
-    if (playerContainer.hasClass("paused")) {
-      player.pauseVideo();
-    } else {
-      player.playVideo();
-    }
-  })
-};
-
-const formatTime = timeSec => {
-  const roundTime = Math.round(timeSec);
-  
-  const minutes = addZero(Math.floor(roundTime / 60));
-  const seconds = addZero(roundTime - minutes * 60);
-  
-  function addZero(num) {
-    return num < 10 ? `0${num}` : num;
+  let playButtons = document.querySelectorAll('.play');
+  for (let i = 0; i < playButtons.length; i++) {
+    playButtons[i].addEventListener('click', playStop);
   }
-  
-  return `${minutes} : ${seconds}`;
- };
 
- const onPlayerReady = () => {
-  let interval;
-  const durationSec = player.getDuration();
-  
-  if (typeof interval !== "undefined") {
-    clearInterval(interval);
+  let micControl = document.getElementById('micLevel');
+  micControl.addEventListener('click', soundOf);
+
+  durationControl = document.getElementById('durationLevel');
+  durationControl.addEventListener('mousedown', stopInterval);
+  durationControl.addEventListener('click', setVideoDuration);
+
+  durationControl.min = 0;
+  durationControl.value = 0;
+
+  soundControl = document.getElementById('volumeLevel');
+  soundControl.addEventListener('click', changeSoundVolume);
+  soundControl.addEventListener('mouseup', changeSoundVolume);
+
+  soundControl.min = 0;
+  soundControl.max = 10;
+  soundControl.value = soundControl.max;
+})
+
+function playStop(){
+  playImg.classList.toggle('player__button-img--active');
+
+  durationControl.max = video.duration;
+
+  if (video.paused) {
+    video.play();
+    intervalId = setInterval(updateDuration , 1000/66);
+  } else {
+    clearInterval(intervalId);
+    video.pause();
   }
-  
-  interval = setInterval(() => {
-    const completedSec = player.getCurrentTime();
-    const completedPercent = (completedSec / durationSec) * 100;
-  
-    $(".player__playback-button").css({
-      left: `${completedPercent}%`
-    });
-   
-  }, 1000);
- };
-
-const onPlayerStateChange = event => {
-  /*
-    -1 (воспроизведение видео не начато)
-    0 (воспроизведение видео завершено)
-    1 (воспроизведение)
-    2 (пауза)
-    3 (буферизация)
-    5 (видео подают реплики).
-  */
-  switch (event.data) {
-    case 1:
-      playerContainer.addClass("active");
-      playerContainer.addClass("paused");
-      break;
-  
-    case 2:
-      playerContainer.removeClass("active");
-      playerContainer.removeClass("paused");
-      break;
-  }
-};
-
-function onYouTubeIframeAPIReady() {
-  player = new YT.Player('yt-player', {
-    height: '392',
-    width: '662',
-    videoId: 'ma67yOdMQfs',
-    events: {
-      'onReady': onPlayerReady,
-      'onStateChange': onPlayerStateChange
-    },
-    playerVars: {
-      controls: 0,
-      disablekb: 0,
-      showinfo: 0,
-      rel: 0,
-      autoplay: 0,
-      modestbranding: 0
-    }
-  });
 }
 
-eventsInit();
+function updateDuration(){
+  durationControl.value = video.currentTime;
+  let step = video.duration / 100;
+  let percent = video.currentTime / step;
+  durationControl.style.background = `linear-gradient(90deg, #FEDB3F 0%, #FEDB3F ${percent}%, #626262 ${percent}%)`;
+}
+
+function stopInterval(){
+  video.pause();
+  clearInterval(intervalId);
+}
+
+function setVideoDuration(){
+  if (video.paused){
+    playImg.classList.add('player__button-img--active');
+    video.play();
+  } else {
+    video.pause();
+  }
+
+  video.currentTime = durationControl.value;
+  intervalId = setInterval(updateDuration , 1000/66);
+}
+
+function changeSoundVolume(){
+  video.volume = soundControl.value / 10;
+}
+
+function soundOf(){
+  if (video.volume === 0){
+    video.volume = soundLevel;
+    soundControl.value = soundLevel * 10;
+  } else {
+    soundLevel = video.volume;
+    video.volume = 0;
+    soundControl.value = 0;
+  }
+}

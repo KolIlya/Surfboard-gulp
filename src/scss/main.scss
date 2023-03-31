@@ -10,10 +10,9 @@ $phones: 480px;
 // z-index
 $z-fixed-menu: 100;
 
-
 @import "media";
 @import "layout";
 
 // components
-@import "blocks/*.scss"
+@import "blocks/*.scss";
 
