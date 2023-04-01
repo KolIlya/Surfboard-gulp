@@ -537,7 +537,7 @@
                 </div>
             </section>
             <section class="section products-menu-section" data-section-id="products-menu" data-sidemenu-theme="white">
-                <h2 class="section__title products-menu-section__title">Меню</h2>
+                <h2 class="products-menu-section__title">Меню</h2>
                 <ul class="products-menu__list">
                     <li class="products-menu__item">
                         <a href="" class="products-menu__title">
@@ -697,21 +697,19 @@
                                 <div class="player__button-wrap">
                                     <button class="player__button play"></button>
                                 </div>
-                                <div class="duration__length-wrap">
-                                    <input type="range" class="duration__length" id="durationLevel" min="0">
+                                <div class="player__length-wrap">
+                                    <input type="range" class="player__length" id="durationLevel" min="0">
                                 </div>
                             </div>
-                            <div class="sound">
-                                <div class="sound" id="soundBtn">
-                                    <button class="sound__btn">
-                                        <img src="img/sound-button.svg" alt="volume icon" class="sound__btn-img"
+                            <div class="player__sound">
+                                    <button class="player__sound-btn" id="soundBtn">
+                                        <img src="img/sound-button.svg" alt="volume icon" class="player__sound-img"
                                             id="micLevel">
                                     </button>
-                                    <div class="sound__volume">
-                                        <input type="range" class="duration__length duration__length--other"
+                                    <div class="player__volume">
+                                        <input type="range" class="player__length player__length--other"
                                             id="volumeLevel" min="0" max="10">
                                     </div>
-                                </div>
                             </div>
                         </div>
                     </div>
