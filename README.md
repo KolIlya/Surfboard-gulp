@@ -2,7 +2,7 @@
 
 Surfboard - это сайт по продаже проффесиональных досок для серфинга.
 
-<p><a href="kolilya.github.io/Surfboard-gulp/dist/">Ознакомиться с проектом</a></p>
+<p><a href="https://kolilya.github.io/Surfboard-gulp/dist/">Ознакомиться с проектом</a></p>
 
 **Проект:** Лендинг для интернет-магазина.
 
